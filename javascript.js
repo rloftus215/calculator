@@ -15,6 +15,9 @@ divideButton.addEventListener('click', () => {operator = '/'});
 
 let displayValue = '';
 let operator;
+let num1;
+let numArr;
+let total = 0;
 
 buttons.forEach((button) => {button.addEventListener('click', () => {
     displayValue += `${button.textContent}`;
@@ -25,9 +28,42 @@ buttons.forEach((button) => {button.addEventListener('click', () => {
 function clearOutput() {
     output.innerText = '';
     displayValue = '';
+    total = 0;
  };
  
  
  clearButton.addEventListener('click', clearOutput)
 
+ equalButton.addEventListener('click', () => {
+  
+    if (operator == '+') {
+        numArr = displayValue.split('+');
+        console.log(numArr);
+        num1 = numArr[0];
+        total += +num1;
+        numArr.splice(1).map((item) => {total += +item});
+    } else if (operator == '-') {
+        numArr = displayValue.split('-');
+        console.log(numArr);
+        num1 = numArr[0];
+        total += +num1;
+        numArr.splice(1).map((item) => {total -= +item});
+    } else if (operator == 'x') {
+        numArr = displayValue.split('x');
+        console.log(numArr);
+        num1 = numArr[0];
+        total += +num1;
+        numArr.splice(1).map((item) => {total *= +item});
+    } else if (operator == '/') {
+        numArr = displayValue.split('/');
+        console.log(numArr);
+        num1 = numArr[0];
+        total += +num1;
+        numArr.splice(1).map((item) => {total /= +item});
+    };
+  
+    output.textContent = total;
+    displayValue = total;
+    total = 0;
+});
  
