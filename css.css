@@ -31,4 +31,9 @@
     height: 50px
  }
  
+ .zero, .equ-button, .clear-button {
+    flex-basis: 133px;
+ }
+ 
+ 
  
